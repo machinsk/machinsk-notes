@@ -1,3 +1,5 @@
+package com.example.machinsk_notes;
+
 import java.util.Date;
 
 

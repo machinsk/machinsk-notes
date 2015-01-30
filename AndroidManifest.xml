@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.machinsk_notes.ClaimEditingActivity"
+            android:label="@string/title_activity_claim_editing" >
+        </activity>
+        <activity
+            android:name="com.example.machinsk_notes.DatePickerActivity"
+            android:label="@string/title_activity_date_picker" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,3 +1,5 @@
+package com.example.machinsk_notes;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Currency;

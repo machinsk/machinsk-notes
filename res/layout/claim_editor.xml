@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/ClaimNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:text="Claim Name:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/ClaimDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Delete Claim" />
+
+    <Button
+        android:id="@+id/ClaimApplyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ClaimDeleteButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Apply" />
+
+    <EditText
+        android:id="@+id/ClaimNameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ClaimNameText"
+        android:layout_toRightOf="@+id/ClaimNameText"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <RadioButton
+        android:id="@+id/ApprovedRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ClaimApplyButton"
+        android:layout_alignLeft="@+id/ReturnedRadio"
+        android:text="Approved" />
+
+    <RadioButton
+        android:id="@+id/ReturnedRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ApprovedRadio"
+        android:layout_alignLeft="@+id/SubmittedRadio"
+        android:text="Returned" />
+
+    <RadioButton
+        android:id="@+id/SubmittedRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ReturnedRadio"
+        android:layout_alignLeft="@+id/InProgressRadio"
+        android:text="Submitted" />
+
+    <RadioButton
+        android:id="@+id/InProgressRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/SubmittedRadio"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:text="In Progress" />
+
+    <EditText
+        android:id="@+id/ClaimDescriptionEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/InProgressRadio"
+        android:layout_alignLeft="@+id/ClaimNameEdit"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/EndDateButton"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/StatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/InProgressRadio"
+        android:layout_alignBottom="@+id/InProgressRadio"
+        android:layout_alignParentLeft="true"
+        android:text="Status:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/ClaimDescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ClaimDescriptionEdit"
+        android:layout_alignBottom="@+id/ClaimDescriptionEdit"
+        android:layout_alignParentLeft="true"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/StartDateButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ClaimNameEdit"
+        android:layout_toLeftOf="@+id/InProgressRadio"
+        android:onClick="startDate"
+        android:text="Start Date" />
+
+    <Button
+        android:id="@+id/EndDateButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/StartDateButton"
+        android:layout_below="@+id/StartDateButton"
+        android:text="End Date" />
+
+    <TextView
+        android:id="@+id/ClaimStartText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/StartDateButton"
+        android:layout_alignBottom="@+id/StartDateButton"
+        android:layout_alignLeft="@+id/InProgressRadio"
+        android:layout_alignParentRight="true"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/EndDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/EndDateButton"
+        android:layout_alignBottom="@+id/EndDateButton"
+        android:layout_alignLeft="@+id/ClaimStartText"
+        android:layout_alignParentRight="true"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
