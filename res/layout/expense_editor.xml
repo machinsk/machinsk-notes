@@ -2,6 +2,121 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
+
+    <Button
+        android:id="@+id/ExpenseDate"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Date" />
+
+    <TextView
+        android:id="@+id/ExpenseDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ExpenseDate"
+        android:layout_alignBottom="@+id/ExpenseDate"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/ExpenseDate" />
+
+    <TextView
+        android:id="@+id/CategoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ExpenseDate"
+        android:layout_marginTop="22dp"
+        android:text="Category:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/CategoryEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/CategoryText"
+        android:layout_toRightOf="@+id/CategoryText"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/AmountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/CategoryEdit"
+        android:layout_marginTop="30dp"
+        android:text="Amount Spent:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/AmountEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/AmountText"
+        android:layout_alignBottom="@+id/AmountText"
+        android:layout_toRightOf="@+id/AmountText"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/expDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Delete Expense" />
+
+    <Button
+        android:id="@+id/expApply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/expDelete"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Apply" />
+
+    <TextView
+        android:id="@+id/CurrencyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/AmountEdit"
+        android:layout_marginTop="20dp"
+        android:text="Currency:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/CurencyEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/CurrencyText"
+        android:layout_toRightOf="@+id/AmountText"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/DescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/CurencyEdit"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/DescriptionEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/expApply"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/DescriptionText"
+        android:ems="10"
+        android:inputType="textMultiLine" />
 
 </RelativeLayout>

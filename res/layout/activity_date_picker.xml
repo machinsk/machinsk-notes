@@ -9,15 +9,23 @@
     tools:context=".DatePickerActivity" >
 
     <TextView
+        android:id="@+id/DateTypeText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_height="wrap_content" />
 
-    <DatePicker 
+    <DatePicker
         android:id="@+id/date_picker"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/DateApplyButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
-    
-    
+        android:layout_alignLeft="@+id/date_picker"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="applyDate"
+        android:text="Apply" />
+
 </RelativeLayout>

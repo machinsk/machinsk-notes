@@ -1,28 +1,41 @@
 package com.example.machinsk_notes;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.util.Calendar;
 
 
 
-public class TravelClaim {
-	protected Date startDate;
-	protected Date endDate;
+public class TravelClaim implements Serializable {
+	/**
+	 * Claim Serializable ID
+	 */
+	private static final long serialVersionUID = -2158008197578272068L;
+
+	protected Calendar startDate;
+	protected Calendar endDate;
 	protected String name;
 	protected String textDescription;
 	
+	public TravelClaim(String name, String textDescription, Calendar startDate, Calendar endDate) {
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.name = name;
+		this.textDescription = textDescription;
+	}
 	
-	public Date getStartDate() {
+	
+	public Calendar getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Calendar startDate) {
 		this.startDate = startDate;
 	}
 	
 	
-	public Date getEndDate() {
+	public Calendar getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(Calendar endDate) {
 		this.endDate = endDate;
 	}
 	
@@ -42,5 +55,26 @@ public class TravelClaim {
 		this.textDescription = textDescription;
 	}
 	
+	
+	public boolean equals(Object compareClaim) {
+		if (compareClaim != null && 
+				compareClaim.getClass()==this.getClass()) {
+			return this.equals((TravelClaim)compareClaim);
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean equals(TravelClaim compareClaim) {
+		if(compareClaim==null) {			
+			return false;
+		}
+		return getName().equals(compareClaim.getName());
+	}	
+	
+	public int hashCode() {
+		return ("Claim:"+getName()).hashCode();
+	}
+
 	
 }

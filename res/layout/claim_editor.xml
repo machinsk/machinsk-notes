@@ -29,6 +29,7 @@
         android:layout_above="@+id/ClaimDeleteButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="applyButton"
         android:text="Apply" />
 
     <EditText
@@ -72,7 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/SubmittedRadio"
         android:layout_centerHorizontal="true"
-        android:enabled="false"
         android:text="In Progress" />
 
     <EditText
