@@ -34,6 +34,10 @@
             android:name="com.example.machinsk_notes.ListExpensesActivity"
             android:label="@string/title_activity_list_expenses" >
         </activity>
+        <activity
+            android:name="com.example.machinsk_notes.ExpenseEditorActivity"
+            android:label="@string/title_activity_expense_editor" >
+        </activity>
     </application>
 
 </manifest>

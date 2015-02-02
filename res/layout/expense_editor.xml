@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:onClick="pickDate"
         android:text="Date" />
 
     <TextView
@@ -69,6 +70,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="deleteExpense"
         android:text="Delete Expense" />
 
     <Button
@@ -78,6 +80,7 @@
         android:layout_above="@+id/expDelete"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="applyExpense"
         android:text="Apply" />
 
     <TextView

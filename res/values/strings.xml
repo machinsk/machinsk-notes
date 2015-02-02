@@ -7,5 +7,6 @@
     <string name="title_activity_claim_editing">ClaimEditing</string>
     <string name="title_activity_date_picker">DatePickerActivity</string>
     <string name="title_activity_list_expenses">ListExpensesActivity</string>
+    <string name="title_activity_expense_editor">ExpenseEditorActivity</string>
 
 </resources>

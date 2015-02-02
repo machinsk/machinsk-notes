@@ -44,12 +44,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		ClaimListManager.initManager(this.getApplicationContext());
+		ExpenseListManager.initManager(this.getApplicationContext());
 		
 		ListView claimListView = (ListView) findViewById(R.id.ClaimListView);
 		ArrayList<TravelClaim> claims = ClaimController.getClaimList().getClaims();
 		final ArrayList<String> list = new ArrayList<String>();
 		for(int i = 0; i<claims.size(); i++){
-			list.add(claims.get(i).getName().toString() + "\nFrom: " + android.text.format.DateFormat.format("yyyy-MM-dd",claims.get(i).getStartDate())/* + "\n" + claims.get(i).getTextDescription().toString()*/);
+			list.add(claims.get(i).getName().toString() + "\nStarting: " + android.text.format.DateFormat.format("yyyy-MM-dd",claims.get(i).getStartDate())/* + "\n" + claims.get(i).getTextDescription().toString()*/);
 		}
 		final ArrayAdapter<String> claimAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 		claimListView.setAdapter(claimAdapter);
@@ -73,7 +74,7 @@ public class MainActivity extends Activity {
 				list.clear();
 				ArrayList<TravelClaim> claims = ClaimController.getClaimList().getClaims();
 				for(int i = 0; i<claims.size(); i++){
-					list.add(claims.get(i).getName().toString());
+					list.add(claims.get(i).getName().toString() + "\nStarting: " + android.text.format.DateFormat.format("yyyy-MM-dd",claims.get(i).getStartDate()));
 				}
 				claimAdapter.notifyDataSetChanged();
 			}
@@ -107,7 +108,7 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	
+
 	
 	public void newClaim(View v){
 		Toast.makeText(this, "New Claim", Toast.LENGTH_SHORT).show();
