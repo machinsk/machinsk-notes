@@ -56,12 +56,11 @@ public final class R {
         public static final int StartDateButton=0x7f080011;
         public static final int StatusText=0x7f08000f;
         public static final int SubmittedRadio=0x7f08000b;
-        public static final int action_settings=0x7f080023;
+        public static final int action_settings=0x7f080024;
         public static final int date_picker=0x7f080001;
-        public static final int editClaim=0x7f080024;
         public static final int expApply=0x7f08001b;
         public static final int expDelete=0x7f08001a;
-        public static final int viewExpense=0x7f080025;
+        public static final int viewExpenses=0x7f080023;
     }
     public static final class layout {
         public static final int activity_date_picker=0x7f030000;
@@ -73,7 +72,8 @@ public final class R {
     public static final class menu {
         public static final int claim_editing=0x7f070000;
         public static final int date_picker=0x7f070001;
-        public static final int main=0x7f070002;
+        public static final int list_expenses=0x7f070002;
+        public static final int main=0x7f070003;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -81,6 +81,7 @@ public final class R {
         public static final int hello_world=0x7f050002;
         public static final int title_activity_claim_editing=0x7f050003;
         public static final int title_activity_date_picker=0x7f050004;
+        public static final int title_activity_list_expenses=0x7f050005;
     }
     public static final class style {
         /** 

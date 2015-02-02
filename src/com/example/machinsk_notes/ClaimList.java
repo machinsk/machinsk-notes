@@ -3,7 +3,7 @@ package com.example.machinsk_notes;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 
 public class ClaimList implements Serializable {
 	
@@ -26,7 +26,7 @@ public class ClaimList implements Serializable {
 		return listeners;
 	}
 	
-	public Collection<TravelClaim> getClaims() {
+	public ArrayList<TravelClaim> getClaims() {
 		return claimList;		
 	}
 
@@ -69,6 +69,19 @@ public class ClaimList implements Serializable {
 
 	public void removeListener(Listener l) {
 		getListeners().remove(l);
+	}
+	
+	public void sort(){
+		DateSort ds = new DateSort();
+		int move;
+		for(int i=claimList.size()-1; i>0; i--){
+			for(int j=0; j<i; j++){
+				move = ds.compare(claimList.get(j).getStartDate(), claimList.get(j+1).getStartDate());
+				if(move==1){
+					Collections.rotate(claimList.subList(j, j+2), -1);
+				}
+			}
+		}
 	}
 	
 }

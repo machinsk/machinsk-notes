@@ -27,7 +27,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -45,20 +45,25 @@ public class MainActivity extends Activity {
 		
 		ClaimListManager.initManager(this.getApplicationContext());
 		
-		final ListView claimListView = (ListView) findViewById(R.id.ClaimListView);
-		Collection<TravelClaim> claims = ClaimController.getClaimList().getClaims();
-		final ArrayList<TravelClaim> list = new ArrayList<TravelClaim>(claims);
-		final ArrayAdapter<TravelClaim> claimAdapter = new ArrayAdapter<TravelClaim>(this, android.R.layout.simple_list_item_1, list);
+		ListView claimListView = (ListView) findViewById(R.id.ClaimListView);
+		ArrayList<TravelClaim> claims = ClaimController.getClaimList().getClaims();
+		final ArrayList<String> list = new ArrayList<String>();
+		for(int i = 0; i<claims.size(); i++){
+			list.add(claims.get(i).getName().toString() + "\nFrom: " + android.text.format.DateFormat.format("yyyy-MM-dd",claims.get(i).getStartDate())/* + "\n" + claims.get(i).getTextDescription().toString()*/);
+		}
+		final ArrayAdapter<String> claimAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 		claimListView.setAdapter(claimAdapter);
-//		claimListView.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//				int selectedPos = (Integer) claimListView.getItemAtPosition(arg2);
-//				
-//			}
-//			
-//		});
+	
+		claimListView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int claimPosition, long id){
+				Intent intent = new Intent(MainActivity.this, ClaimEditingActivity.class);
+				intent.putExtra("ifNew", false);
+				intent.putExtra("position", claimPosition);
+				startActivity(intent);
+				return false;
+			}
+		});
 		
 		
 		
@@ -66,8 +71,10 @@ public class MainActivity extends Activity {
 			@Override
 			public void update() {
 				list.clear();
-				Collection<TravelClaim> claims = ClaimController.getClaimList().getClaims();
-				list.addAll(claims);
+				ArrayList<TravelClaim> claims = ClaimController.getClaimList().getClaims();
+				for(int i = 0; i<claims.size(); i++){
+					list.add(claims.get(i).getName().toString());
+				}
 				claimAdapter.notifyDataSetChanged();
 			}
 		});
@@ -105,15 +112,11 @@ public class MainActivity extends Activity {
 	public void newClaim(View v){
 		Toast.makeText(this, "New Claim", Toast.LENGTH_SHORT).show();
 		Intent i = new Intent(this, ClaimEditingActivity.class);
+		i.putExtra("ifNew", true);
 		startActivity(i);
 	}
 	
 	public void editClaim(View v){
-		Toast.makeText(this, "Edit Claim", Toast.LENGTH_SHORT).show();
-
-	}
-	
-	public void goToExpense(MenuItem menu){
 		Toast.makeText(this, "Edit Claim", Toast.LENGTH_SHORT).show();
 
 	}

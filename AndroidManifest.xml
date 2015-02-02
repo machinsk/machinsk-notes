@@ -30,6 +30,10 @@
             android:name="com.example.machinsk_notes.DatePickerActivity"
             android:label="@string/title_activity_date_picker" >
         </activity>
+        <activity
+            android:name="com.example.machinsk_notes.ListExpensesActivity"
+            android:label="@string/title_activity_list_expenses" >
+        </activity>
     </application>
 
 </manifest>

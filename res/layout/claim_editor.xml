@@ -20,6 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="deleteButton"
         android:text="Delete Claim" />
 
     <Button

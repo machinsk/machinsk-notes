@@ -31,7 +31,6 @@ public class TravelClaim implements Serializable {
 		this.startDate = startDate;
 	}
 	
-	
 	public Calendar getEndDate() {
 		return endDate;
 	}
