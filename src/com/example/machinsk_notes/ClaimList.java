@@ -5,6 +5,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Heavily modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentList.java  Jan 30 2015
+
 public class ClaimList implements Serializable {
 	
 	/**

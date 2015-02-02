@@ -11,6 +11,9 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Base64;
 
+//Modified from: 
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentListManager.java Feb 1 2015
+
 public class ExpenseListManager {
 	static final String prefFile = "ExpenseList";
 	static final String slKey = "expenseList"; 

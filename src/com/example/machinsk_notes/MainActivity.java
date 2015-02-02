@@ -32,6 +32,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+//heavily modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/ListStudentsActivity.java Jan 30 2015
+
 public class MainActivity extends Activity {
 	
 	private static final String FILENAME = "file.sav";
@@ -42,7 +45,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
+		//Putting Expenses in ListView
 		ClaimListManager.initManager(this.getApplicationContext());
 		ExpenseListManager.initManager(this.getApplicationContext());
 		
@@ -55,6 +59,7 @@ public class MainActivity extends Activity {
 		final ArrayAdapter<String> claimAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 		claimListView.setAdapter(claimAdapter);
 	
+		//Long click to Edit Claim
 		claimListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int claimPosition, long id){
@@ -109,7 +114,7 @@ public class MainActivity extends Activity {
 	}
 
 
-	
+	//Click on New Claim
 	public void newClaim(View v){
 		Toast.makeText(this, "New Claim", Toast.LENGTH_SHORT).show();
 		Intent i = new Intent(this, ClaimEditingActivity.class);

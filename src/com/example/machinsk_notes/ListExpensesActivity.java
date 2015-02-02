@@ -14,6 +14,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemLongClickListener;
 
+
+//heavily modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/ListStudentsActivity.java Feb 1 2015
+
 public class ListExpensesActivity extends Activity {
 
 	@Override
@@ -21,6 +25,7 @@ public class ListExpensesActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_expenses);
 		
+		//Putting Expenses in ListView
 		ListView expenseListView = (ListView) findViewById(R.id.ExpenseListView);
 		ArrayList<Expense> expenses = ExpenseController.getExpenseList().getExpenses();
 		final ArrayList<String> list = new ArrayList<String>();
@@ -29,7 +34,8 @@ public class ListExpensesActivity extends Activity {
 		}
 		final ArrayAdapter<String> expenseAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 		expenseListView.setAdapter(expenseAdapter);
-	
+
+		//Long click to Edit Expense
 		expenseListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int expensePosition, long id){
@@ -64,7 +70,8 @@ public class ListExpensesActivity extends Activity {
 		return true;
 	}
 
-	
+
+	//Click on New Claim
 	public void newExpense(View v){
 		Toast.makeText(this, "New Claim", Toast.LENGTH_SHORT).show();
 		Intent i = new Intent(this, ExpenseEditorActivity.class);

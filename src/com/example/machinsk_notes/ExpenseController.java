@@ -2,10 +2,14 @@ package com.example.machinsk_notes;
 
 import java.io.IOException;
 
+//Modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentListController.java  Feb 1 2015
+
 public class ExpenseController {
 	
 	// Lazy Singleton 
 	private static ExpenseList expenseList = null;
+	
 	
 	// Warning: throws a runTimeException
 	static public ExpenseList getExpenseList() {
@@ -30,7 +34,8 @@ public class ExpenseController {
 		}
 		return expenseList;			
 	}
-		
+	
+	
 	static public void saveExpenseList() {
 		try {
 			ExpenseListManager.getManager().saveExpenseList(getExpenseList());
@@ -41,9 +46,11 @@ public class ExpenseController {
 		}		
 	}
 	
+	
 	public Expense chooseExpense() throws EmptyExpenseListException {
 		return getExpenseList().chooseExpense();		
 	}
+	
 	
 	public void addExpense(Expense expense) { 
 		getExpenseList().addExpense(expense);

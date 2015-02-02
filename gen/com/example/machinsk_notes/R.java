@@ -42,6 +42,7 @@ public final class R {
         public static final int CurrencyText=0x7f080019;
         public static final int DescriptionEdit=0x7f08001c;
         public static final int DescriptionText=0x7f08001b;
+        public static final int Email=0x7f080021;
         public static final int EndDateButton=0x7f08000b;
         public static final int EndDateText=0x7f080010;
         public static final int ExpenseDate=0x7f080011;
@@ -53,10 +54,11 @@ public final class R {
         public static final int StartDateButton=0x7f08000e;
         public static final int StatusText=0x7f08000c;
         public static final int SubmittedRadio=0x7f080008;
-        public static final int action_settings=0x7f080020;
+        public static final int action_settings=0x7f080022;
         public static final int expApply=0x7f080018;
         public static final int expDelete=0x7f080017;
         public static final int viewExpenses=0x7f08001f;
+        public static final int viewTotals=0x7f080020;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

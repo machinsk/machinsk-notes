@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Comparator;
 
+//Heavily modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/Student.java  Feb 1 2015
+
 public class Expense implements Serializable {
 	/**
 	 * Expense Serializable ID

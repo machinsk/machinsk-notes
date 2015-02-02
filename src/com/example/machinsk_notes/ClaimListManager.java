@@ -11,14 +11,20 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Base64;
 
+//Modified from: 
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentListManager.java Feb 1 2015
+
 
 public class ClaimListManager {
 	static final String prefFile = "ClaimList";
 	static final String slKey = "claimList"; 
 	
+	
 	Context context;
 	
+	
 	static private ClaimListManager claimListManager = null;
+	
 	
 	public static void initManager(Context context) {
 		if (claimListManager == null) {
@@ -28,6 +34,7 @@ public class ClaimListManager {
 			claimListManager = new ClaimListManager(context);
 		}		
 	}
+	
 	
 	public static ClaimListManager getManager() {
 		if (claimListManager==null) {
@@ -41,6 +48,7 @@ public class ClaimListManager {
 		this.context = context;
 	}
 
+	
 	public ClaimList loadClaimList() throws ClassNotFoundException, IOException {
 		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
 		String claimListData = settings.getString(slKey, "");
@@ -51,11 +59,13 @@ public class ClaimListManager {
 		}
 	}
 	
+	
 	static public ClaimList claimListFromString(String claimListData) throws ClassNotFoundException, IOException {
 		ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(claimListData, Base64.DEFAULT));
 		ObjectInputStream oi = new ObjectInputStream(bi);
 		return (ClaimList)oi.readObject();	
 	}
+	
 	
 	static public String claimListToString(ClaimList sl) throws IOException {
 		ByteArrayOutputStream bo = new ByteArrayOutputStream();
@@ -65,6 +75,7 @@ public class ClaimListManager {
 		byte bytes[] = bo.toByteArray();
 		return Base64.encodeToString(bytes,Base64.DEFAULT);
 	}
+	
 	
 	public void saveClaimList(ClaimList sl) throws IOException {
 		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);

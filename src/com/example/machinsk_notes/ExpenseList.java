@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Heavily modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentList.java  Feb 1 2015
+
 public class ExpenseList implements Serializable {
 	
 	/**
@@ -76,6 +79,9 @@ public class ExpenseList implements Serializable {
 		notifyListeners();
 	}
 	
+	public void TotalExpensesByCurrency(){
+		
+	}
 	
 	//https://community.oracle.com/thread/1155768
 	public void sort(){

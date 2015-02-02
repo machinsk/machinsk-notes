@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Comparator;
 
-
+//Heavily modified from:
+//https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/Student.java  Jan 30 2015
 
 public class TravelClaim implements Serializable {
 	/**
@@ -87,6 +88,10 @@ public class TravelClaim implements Serializable {
 			TravelClaim cDate2 = (TravelClaim) date2;
 			return (cDate1.getStartDate()).compareTo(cDate2.getStartDate());
 		}
+		
+	}
+	
+	public void sumExpenses(){
 		
 	}
 
