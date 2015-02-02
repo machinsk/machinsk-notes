@@ -29,20 +29,32 @@ public class ClaimEditingActivity extends Activity {
 		Bundle extras = getIntent().getExtras();
 		if(extras != null){
 			boolean ifNew = extras.getBoolean("ifNew");
+			boolean ifStart = extras.getBoolean("start");
+			boolean ifEnd = extras.getBoolean("end");
 			if (ifNew){
 				pickStart = Calendar.getInstance();
 				pickEnd = Calendar.getInstance();
 			} else {
-				claimPosition = extras.getInt("position");
 				ArrayList<TravelClaim> claims = ClaimController.getClaimList().getClaims();
+				claimPosition = extras.getInt("position");
+				if(ifStart){
+					pickStart = (Calendar)extras.get("date");
+					pickEnd = claims.get(claimPosition).getEndDate();
+				} else if(ifEnd){
+					pickStart = claims.get(claimPosition).getStartDate();
+					pickEnd = (Calendar)extras.get("date");
+				} else {
+					pickStart = claims.get(claimPosition).getStartDate();
+					pickEnd = claims.get(claimPosition).getEndDate();
+				}
 				
 				TextView tvStart = (TextView) findViewById(R.id.ClaimStartText);
 				TextView tvEnd = (TextView) findViewById(R.id.EndDateText);
 				EditText edName = (EditText) findViewById(R.id.ClaimNameEdit);
 				EditText edDesp = (EditText) findViewById(R.id.ClaimDescriptionEdit);
 				
-				tvStart.setText( android.text.format.DateFormat.format("yyyy-MM-dd",claims.get(claimPosition).getStartDate()));
-				tvEnd.setText( android.text.format.DateFormat.format("yyyy-MM-dd",claims.get(claimPosition).getEndDate()));
+				tvStart.setText( android.text.format.DateFormat.format("yyyy-MM-dd",pickStart));
+				tvEnd.setText( android.text.format.DateFormat.format("yyyy-MM-dd",pickEnd));
 				edName.setText(claims.get(claimPosition).getName());
 				edDesp.setText(claims.get(claimPosition).getTextDescription());
 			}
@@ -50,9 +62,6 @@ public class ClaimEditingActivity extends Activity {
 		
 
 		
-		//Date Picker for start and End Date buttons
-//		Button bStart = (Button) findViewById(R.id.StartDateButton);
-//		Button bEnd = (Button) findViewById(R.id.EndDateButton);
 		
 		
 	}
@@ -74,12 +83,16 @@ public class ClaimEditingActivity extends Activity {
 	public void startDate(View v){
 		Toast.makeText(this, "Start Date", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(ClaimEditingActivity.this, DatePickerActivity.class);
+		intent.putExtra("start", true);
+		intent.putExtra("position", claimPosition);
 		startActivity(intent);
 	}
 	
 	public void endDate(View v){
 		Toast.makeText(this, "End Date", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(ClaimEditingActivity.this, DatePickerActivity.class);
+		intent.putExtra("end", true);
+		intent.putExtra("position", claimPosition);
 		startActivity(intent);
 	}
 	

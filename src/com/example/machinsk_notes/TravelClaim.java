@@ -2,6 +2,7 @@ package com.example.machinsk_notes;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Comparator;
 
 
 
@@ -73,6 +74,20 @@ public class TravelClaim implements Serializable {
 	
 	public int hashCode() {
 		return ("Claim:"+getName()).hashCode();
+	}
+	
+	static class SortByDate implements Comparator {
+
+		@Override
+		public int compare(Object date1, Object date2) {
+			if(!(date1 instanceof TravelClaim)||!(date2 instanceof TravelClaim)){
+				throw new ClassCastException();
+			}
+			TravelClaim cDate1 = (TravelClaim) date1;
+			TravelClaim cDate2 = (TravelClaim) date2;
+			return (cDate1.getStartDate()).compareTo(cDate2.getStartDate());
+		}
+		
 	}
 
 	

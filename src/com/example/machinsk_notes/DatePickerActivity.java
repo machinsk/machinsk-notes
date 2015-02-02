@@ -18,6 +18,8 @@ public class DatePickerActivity extends Activity {
 	private boolean start;
 	private boolean end;
 	private boolean expense;
+	private int claimPosition;
+	private final DatePicker datepicker = (DatePicker) findViewById(R.id.date_picker);
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +32,11 @@ public class DatePickerActivity extends Activity {
 			start = extras.getBoolean("start");
 			end = extras.getBoolean("end");
 			expense = extras.getBoolean("expense");
+			claimPosition = extras.getInt("position");
+			
 		}
 		
-		final DatePicker datepicker = (DatePicker) findViewById(R.id.date_picker);
+//		final DatePicker datepicker = (DatePicker) findViewById(R.id.date_picker);
 		final TextView dateType = (TextView) findViewById(R.id.DateTypeText);
 		
 		if(start){
@@ -68,20 +72,23 @@ public class DatePickerActivity extends Activity {
 
 	
 	public void applyDate(View v){
-		final DatePicker datepicker = (DatePicker) findViewById(R.id.date_picker);
+		Toast.makeText(this, "Applied", Toast.LENGTH_SHORT).show();
 		cDate.set(datepicker.getYear(), datepicker.getMonth(), datepicker.getDayOfMonth());
 		
 		if(start){
-			Intent intent = new Intent(this, ClaimEditingActivity.class);
-			intent.putExtra("start", true);
-			intent.putExtra("date", cDate);
-			startActivity(intent);
+//			Intent intent = new Intent(this, ClaimEditingActivity.class);
+//			intent.putExtra("start", true);
+//			intent.putExtra("date", cDate);
+//			intent.putExtra("position", claimPosition);
+//			startActivity(intent);
 		}
 		if(end){
-			Intent intent = new Intent(this, ClaimEditingActivity.class);
-			intent.putExtra("end", true);
-			intent.putExtra("date", cDate);
-			startActivity(intent);
+//			Intent intent = new Intent(this, ClaimEditingActivity.class);
+//			intent.putExtra("end", true);
+//			intent.putExtra("date", cDate);
+//			intent.putExtra("position", claimPosition);
+//			Toast.makeText(this, "Applied", Toast.LENGTH_SHORT).show();
+//			startActivity(intent);
 		}
 		if(expense){
 //			Intent intent = new Intent(this, ClaimEditingActivity.class);

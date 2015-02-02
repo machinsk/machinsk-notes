@@ -36,6 +36,7 @@ public class ClaimList implements Serializable {
 	}
 
 	private void notifyListeners() {
+		this.sort();
 		for (Listener  listener : getListeners()) {
 			listener.update();
 		}
@@ -71,17 +72,14 @@ public class ClaimList implements Serializable {
 		getListeners().remove(l);
 	}
 	
+	public void Update(){
+		notifyListeners();
+	}
+	
+	
+	//https://community.oracle.com/thread/1155768
 	public void sort(){
-		DateSort ds = new DateSort();
-		int move;
-		for(int i=claimList.size()-1; i>0; i--){
-			for(int j=0; j<i; j++){
-				move = ds.compare(claimList.get(j).getStartDate(), claimList.get(j+1).getStartDate());
-				if(move==1){
-					Collections.rotate(claimList.subList(j, j+2), -1);
-				}
-			}
-		}
+		Collections.sort(claimList, new TravelClaim.SortByDate());
 	}
 	
 }

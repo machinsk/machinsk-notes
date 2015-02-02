@@ -116,11 +116,6 @@ public class MainActivity extends Activity {
 		startActivity(i);
 	}
 	
-	public void editClaim(View v){
-		Toast.makeText(this, "Edit Claim", Toast.LENGTH_SHORT).show();
-
-	}
-	
 	
 	
 	

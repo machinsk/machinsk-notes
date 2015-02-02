@@ -126,6 +126,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/StartDateButton"
         android:layout_below="@+id/StartDateButton"
+        android:onClick="endDate"
         android:text="End Date" />
 
     <TextView
